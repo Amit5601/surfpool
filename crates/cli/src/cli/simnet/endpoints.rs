@@ -342,8 +342,9 @@ fn resolve_host(host: &str) -> Result<Vec<IpAddr>, String> {
 
 #[cfg(test)]
 mod tests {
-    use super::EndpointOverrides;
     use surfpool_types::SurfpoolConfig;
+
+    use super::EndpointOverrides;
 
     #[test]
     fn studio_bind_override_derives_its_advertised_url() {
@@ -469,7 +470,7 @@ mod tests {
             ..Default::default()
         }
         .resolve(&SurfpoolConfig::default())
-            .unwrap_err();
+        .unwrap_err();
 
         assert!(error.contains("non-zero port"));
     }
